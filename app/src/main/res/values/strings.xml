@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">New Deluxe Fast Food</string>
+    <string name="enter_email">Enter Email</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="log_in">Log in</string>
+    <string name="sigh_up_here">Not registered? Sigh up here.</string>
+    <string name="register">Register</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

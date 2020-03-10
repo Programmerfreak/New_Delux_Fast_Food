@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="18dp"
+    android:background="@drawable/loginscreen_gradient_background"
+    tools:context=".screens.registration_screen.RegistrationScreen">
+
+    <EditText
+        android:id="@+id/emailEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="8dp"
+        android:drawableLeft="@drawable/ic_email"
+        android:hint="@string/enter_email"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/editext_box_background"
+        android:inputType="textEmailAddress" />
+
+    <EditText
+        android:id="@+id/passwordEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:drawableLeft="@drawable/ic_text_fields"
+        android:padding="8dp"
+        android:background="@drawable/editext_box_background"
+        android:layout_marginTop="10dp"
+        android:hint="@string/enter_password" />
+
+    <Button
+        android:id="@+id/registerTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/round_border_background"
+        android:text="@string/register" />
+
+</LinearLayout>

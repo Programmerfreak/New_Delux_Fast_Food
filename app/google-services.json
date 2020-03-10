@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "204567873237",
+    "firebase_url": "https://new-deluxe-demo.firebaseio.com",
+    "project_id": "new-deluxe-demo",
+    "storage_bucket": "new-deluxe-demo.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:204567873237:android:614dfe13079c3d7ceb045c",
+        "android_client_info": {
+          "package_name": "com.example.newdeluxfastfood"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "204567873237-31ibfq82lviqalk71bdnt6ai243f56lr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCpxbCr4iMlgM64pifkKNtXgYBn6jZuyhs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "204567873237-31ibfq82lviqalk71bdnt6ai243f56lr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
