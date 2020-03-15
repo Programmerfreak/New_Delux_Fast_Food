@@ -2,10 +2,24 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/place_order"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/place_order"
     tools:context=".screens.place_new_order_screen.PlaceOrder">
+
+    <TextView
+        android:id="@+id/cartEmptyTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cart is empty"
+        android:textSize="20sp"
+        android:drawableLeft="@drawable/ic_shopping_cart"
+        android:drawablePadding="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"

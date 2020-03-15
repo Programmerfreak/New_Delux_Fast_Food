@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".screens.place_new_order_screen.Menu"></activity>
+        <activity android:name=".screens.menu_item.item3.Item3Activity"></activity>
+        <activity android:name=".screens.menu_item.item2.Item2Activity" />
+        <activity android:name=".screens.menu_item.item1.Item1Activity" />
+        <activity android:name=".screens.place_new_order_screen.Menu" />
         <activity android:name=".screens.place_new_order_screen.PlaceOrder" />
         <activity android:name=".screens.registration_screen.RegistrationScreen" />
         <activity android:name=".screens.login_screen.LoginScreen" />
