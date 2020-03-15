@@ -73,6 +73,7 @@ public class Item3Activity extends AppCompatActivity {
     }
 
     public void setThisClassQuantity() {
+        //'quantity' is used in 'ListAdapter' to show quantity of item
         quantity = spinnerValue + " pieces";
     }
 
