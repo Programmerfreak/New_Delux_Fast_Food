@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.example.newdeluxfastfood.databinding.ActivityPlaceOrderBinding;
 import com.example.newdeluxfastfood.listAdapter.ListAdapter;
+import com.example.newdeluxfastfood.screens.payment_screen.PaymentOptions;
 import com.example.newdeluxfastfood.utils.MenuItem;
 import com.example.newdeluxfastfood.viewmodel.PlaceOrderViewModel;
 
@@ -24,6 +25,7 @@ public class PlaceOrder extends AppCompatActivity implements ListAdapter.Recycle
     private PlaceOrderViewModel viewModel;
     private boolean IS_ORDER_EMPTY = true;
     private LiveData<List<MenuItem>> orders;
+    private int price = 0;
     private int position;
 
     @Override
@@ -41,12 +43,19 @@ public class PlaceOrder extends AppCompatActivity implements ListAdapter.Recycle
         binding.recyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter.setRecyclerViewOnItemClickListener(this);
 
-        setTextView();
+        setLayoutItems();
 
         binding.floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(PlaceOrder.this, Menu.class));
+            }
+        });
+
+        binding.payButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(PlaceOrder.this, PaymentOptions.class).putExtra("Price", price));
             }
         });
 
@@ -57,7 +66,8 @@ public class PlaceOrder extends AppCompatActivity implements ListAdapter.Recycle
                     IS_ORDER_EMPTY = false;
                 else
                     IS_ORDER_EMPTY = true;
-                setTextView();
+                setLayoutItems();
+                getEstimatedPrice();
 
                 Log.i("PlaceOrder:", String.valueOf(orders.getValue().size()));
                 adapter.updateList(menuItems);
@@ -65,11 +75,29 @@ public class PlaceOrder extends AppCompatActivity implements ListAdapter.Recycle
         });
     }
 
-    void setTextView() {
-        if(IS_ORDER_EMPTY)
+    void getEstimatedPrice() {
+        //Setting price again to 0 because the price appends whenever the item is pressed from the list 'ListAdapter'
+        //So to avoid that price is set to 0 every time
+        price = 0;
+        if(!IS_ORDER_EMPTY) {
+            for (MenuItem values : orders.getValue())
+                price += values.getPrice();
+            binding.finalPriceTextView.setText("Total Pay: "+price);
+        }
+        Log.i("PlaceOrder price", String.valueOf(price));
+    }
+
+    void setLayoutItems() {
+        if(IS_ORDER_EMPTY) {
             binding.cartEmptyTextView.animate().alpha(1);
-        else
+            binding.payButton.animate().alpha(0);
+            binding.finalPriceTextView.animate().alpha(0);
+        }
+        else {
             binding.cartEmptyTextView.animate().alpha(0);
+            binding.payButton.animate().alpha(1);
+            binding.finalPriceTextView.animate().alpha(1);
+        }
     }
 
     @Override
@@ -83,4 +111,3 @@ public class PlaceOrder extends AppCompatActivity implements ListAdapter.Recycle
         viewModel.deleteItemFromOrder(position);
     }
 }
-

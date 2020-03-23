@@ -14,9 +14,9 @@ public class Item3Activity extends AppCompatActivity {
     private ActivityItem3Binding binding;
     private String quantity;
     private String spinnerValue;
-    private Item3 item3;
+    private Item3 item;
     private Order mOrder;
-    private int position;
+    private int price;
     private int spinnerPosition;
     private int priceOfPlate;
 
@@ -35,7 +35,7 @@ public class Item3Activity extends AppCompatActivity {
 
         binding.itemDetailTextView.setText(new Item3().getItemDetailsTextViewText());
 
-        position = getIntent().getIntExtra("Item3", -1);
+        int position = getIntent().getIntExtra("Item3", -1);
 
         priceOfPlate = new Item3().getHalfPlatePrice();
 
@@ -61,12 +61,13 @@ public class Item3Activity extends AppCompatActivity {
         binding.orderButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                item3 = new Item3();
+                item = new Item3();
                 setThisClassQuantity();
-                item3.setQuantity(quantity);
+                item.setQuantity(quantity);
                 Toast.makeText(Item3Activity.this, "Item added to cart", Toast.LENGTH_SHORT).show();
-                item3.setPositionOfPlateSelected(spinnerPosition);
-                mOrder.updateOrder(item3);
+                item.setPositionOfPlateSelected(spinnerPosition);
+                item.setPrice(price);
+                mOrder.updateOrder(item);
                 finish();
             }
         });
@@ -78,7 +79,7 @@ public class Item3Activity extends AppCompatActivity {
     }
 
     public void setEstimatedTextView() {
-        int price = (Integer.parseInt(spinnerValue)/3)*priceOfPlate;
+        price = (Integer.parseInt(spinnerValue)/3)*priceOfPlate;
         binding.estimatedTextView.setText(String.valueOf(price));
     }
 }

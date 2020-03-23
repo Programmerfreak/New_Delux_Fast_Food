@@ -6,7 +6,7 @@ public abstract class MenuItem {
     protected String description;
     protected String itemDetailsTextViewText;
 
-    public abstract void setPrice();
+    public abstract void setPrice(int price);
     public abstract void setItemName();
     public abstract void setDescription();
     public abstract void setItemDetailsTextViewText();
@@ -16,4 +16,6 @@ public abstract class MenuItem {
     public abstract String getDescriptionName();
     public abstract String getQuantity();
     public abstract String getItemDetailsTextViewText();
+
+    public int getPrice() { return this.price; }
 }

@@ -18,12 +18,12 @@ public class Item3 extends MenuItem {
     }
 
     @Override
-    public void setPrice() {
+    public void setPrice(int price) {
         /**
          * TODO
          * set price by user order quantity ordered
          */
-        this.price = 30;
+        this.price = price;
     }
 
     @Override

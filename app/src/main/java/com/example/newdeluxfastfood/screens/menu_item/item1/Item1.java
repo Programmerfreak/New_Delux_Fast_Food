@@ -13,7 +13,6 @@ public class Item1 extends MenuItem {
      * Remember to add constructor to initialize values
      */
     public Item1() {
-        setPrice();
         setItemName();
         setDescription();
         setItemDetailsTextViewText();
@@ -26,13 +25,13 @@ public class Item1 extends MenuItem {
     }
 
     @Override
-    public void setPrice() {
+    public void setPrice(int price) {
         /**
          * TODO
          * Change price to actual price of item that's selected by the user
          * like 1kg100gram is chosen by user the price should be 375
          */
-        this.price = 35;
+        this.price = price;
     }
 
     @Override

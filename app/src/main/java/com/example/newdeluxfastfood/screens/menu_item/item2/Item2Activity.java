@@ -22,6 +22,7 @@ public class Item2Activity extends AppCompatActivity {
     private int pricePerKG;
     private int pricePerGram;
     private Order mOrder;
+    private int price;
     private int position;
     private String [] gramItems;
     private String quantityInKg;
@@ -107,7 +108,7 @@ public class Item2Activity extends AppCompatActivity {
                     //Passing three string values, from which 'quantityInKg' and 'quantityInGram' can be
                     //taken again from object to set spinner values when activity is called from 'ListAdapter'
                     item.setQuantity(quantity, quantityInKg, quantityInGram);
-
+                    item.setPrice(price);
                     mOrder.updateOrder(item);
                     Toast.makeText(Item2Activity.this, "Item added to cart", Toast.LENGTH_SHORT).show();
                     finish();
@@ -125,7 +126,7 @@ public class Item2Activity extends AppCompatActivity {
     void setEstimatedTextView(int spinnerKG, int spinnerGram) {
         if(spinnerKG!=0 || spinnerGram!=0) {
             binding.estimatedTextView.animate().alpha(1);
-            int price = (spinnerKG * pricePerKG) + ((spinnerGram / 100) * pricePerGram);
+            price = (spinnerKG * pricePerKG) + ((spinnerGram / 100) * pricePerGram);
             Log.i("Estimated price:", String.valueOf(price));
             binding.estimatedTextView.setText(String.valueOf(price));
         } else {
