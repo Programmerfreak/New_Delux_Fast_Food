@@ -13,11 +13,11 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.newdeluxfastfood.R;
-import com.example.newdeluxfastfood.screens.menu_item.item1.Item1;
-import com.example.newdeluxfastfood.screens.menu_item.item1.Item1Activity;
-import com.example.newdeluxfastfood.screens.menu_item.item2.Item2;
-import com.example.newdeluxfastfood.screens.menu_item.item2.Item2Activity;
-import com.example.newdeluxfastfood.screens.menu_item.item3.Item3Activity;
+import com.example.newdeluxfastfood.utils.menu_item.item1.Item1;
+import com.example.newdeluxfastfood.utils.menu_item.item1.Item1Activity;
+import com.example.newdeluxfastfood.utils.menu_item.item2.Item2;
+import com.example.newdeluxfastfood.utils.menu_item.item2.Item2Activity;
+import com.example.newdeluxfastfood.utils.menu_item.item3.Item3Activity;
 import com.example.newdeluxfastfood.utils.MenuItem;
 
 import java.util.List;

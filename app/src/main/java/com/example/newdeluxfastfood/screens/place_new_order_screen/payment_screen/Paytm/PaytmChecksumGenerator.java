@@ -1,4 +1,4 @@
-package com.example.newdeluxfastfood.screens.payment_screen.Paytm;
+package com.example.newdeluxfastfood.screens.place_new_order_screen.payment_screen.Paytm;
 
 import java.util.HashMap;
 

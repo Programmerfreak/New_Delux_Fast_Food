@@ -6,17 +6,17 @@ import android.util.Log;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.example.newdeluxfastfood.databinding.ActivityPlaceOrderBinding;
 import com.example.newdeluxfastfood.listAdapter.ListAdapter;
-import com.example.newdeluxfastfood.screens.payment_screen.PaymentOptions;
+import com.example.newdeluxfastfood.screens.place_new_order_screen.payment_screen.PaymentOptions;
 import com.example.newdeluxfastfood.utils.MenuItem;
 import com.example.newdeluxfastfood.viewmodel.PlaceOrderViewModel;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class PlaceOrder extends AppCompatActivity implements ListAdapter.RecyclerViewOnItemClickListener {
@@ -24,7 +24,6 @@ public class PlaceOrder extends AppCompatActivity implements ListAdapter.Recycle
     private ListAdapter adapter;
     private PlaceOrderViewModel viewModel;
     private boolean IS_ORDER_EMPTY = true;
-    private LiveData<List<MenuItem>> orders;
     private int price = 0;
     private int position;
 
@@ -36,7 +35,6 @@ public class PlaceOrder extends AppCompatActivity implements ListAdapter.Recycle
         setContentView(view);
 
         viewModel = new ViewModelProvider(this).get(PlaceOrderViewModel.class);
-        orders = viewModel.getOrders();
 
         adapter = new ListAdapter(viewModel.getMenuItemList(), this);
         binding.recyclerView.setAdapter(adapter);
@@ -55,21 +53,26 @@ public class PlaceOrder extends AppCompatActivity implements ListAdapter.Recycle
         binding.payButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(PlaceOrder.this, PaymentOptions.class).putExtra("Price", price));
+                ArrayList<String> orderItems = new ArrayList<>();
+                for(MenuItem order: viewModel.getOrders().getValue()!=null?viewModel.getOrders().getValue():new ArrayList<MenuItem>())
+                    orderItems.add(order.getItemName());
+                startActivity(new Intent(PlaceOrder.this, PaymentOptions.class)
+                        .putExtra("Price", price)
+                        .putExtra("orderItems", orderItems));
             }
         });
 
-        orders.observe(this, new Observer<List<MenuItem>>() {
+        viewModel.getOrders().observe(this, new Observer<List<MenuItem>>() {
             @Override
             public void onChanged(List<MenuItem> menuItems) {
-                if(orders.getValue().size() != 0)
+                if(viewModel.getOrders().getValue().size() != 0)
                     IS_ORDER_EMPTY = false;
                 else
                     IS_ORDER_EMPTY = true;
                 setLayoutItems();
                 getEstimatedPrice();
 
-                Log.i("PlaceOrder:", String.valueOf(orders.getValue().size()));
+                Log.i("PlaceOrder:", String.valueOf(viewModel.getOrders().getValue().size()));
                 adapter.updateList(menuItems);
             }
         });
@@ -80,7 +83,7 @@ public class PlaceOrder extends AppCompatActivity implements ListAdapter.Recycle
         //So to avoid that price is set to 0 every time
         price = 0;
         if(!IS_ORDER_EMPTY) {
-            for (MenuItem values : orders.getValue())
+            for (MenuItem values : viewModel.getOrders().getValue())
                 price += values.getPrice();
             binding.finalPriceTextView.setText("Total Pay: "+price);
         }

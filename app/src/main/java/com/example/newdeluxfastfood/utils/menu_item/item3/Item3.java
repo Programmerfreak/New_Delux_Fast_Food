@@ -1,4 +1,4 @@
-package com.example.newdeluxfastfood.screens.menu_item.item3;
+package com.example.newdeluxfastfood.utils.menu_item.item3;
 
 import com.example.newdeluxfastfood.utils.MenuItem;
 

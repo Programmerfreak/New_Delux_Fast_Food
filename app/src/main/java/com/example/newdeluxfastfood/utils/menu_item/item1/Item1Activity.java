@@ -1,4 +1,4 @@
-package com.example.newdeluxfastfood.screens.menu_item.item1;
+package com.example.newdeluxfastfood.utils.menu_item.item1;
 
 import android.os.Bundle;
 import android.util.Log;

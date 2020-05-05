@@ -15,8 +15,12 @@
       },
       "oauth_client": [
         {
-          "client_id": "204567873237-31ibfq82lviqalk71bdnt6ai243f56lr.apps.googleusercontent.com",
-          "client_type": 3
+          "client_id": "204567873237-i2led822vh0l89n02eds3jod23a6vs9a.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.newdeluxfastfood",
+            "certificate_hash": "a623fdd856eca710cf01b7bac642ef6fba413924"
+          }
         }
       ],
       "api_key": [

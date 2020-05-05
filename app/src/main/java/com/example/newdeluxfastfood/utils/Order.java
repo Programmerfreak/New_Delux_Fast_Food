@@ -5,9 +5,9 @@ import android.util.Log;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
-import com.example.newdeluxfastfood.screens.menu_item.item1.Item1;
-import com.example.newdeluxfastfood.screens.menu_item.item2.Item2;
-import com.example.newdeluxfastfood.screens.menu_item.item3.Item3;
+import com.example.newdeluxfastfood.utils.menu_item.item1.Item1;
+import com.example.newdeluxfastfood.utils.menu_item.item2.Item2;
+import com.example.newdeluxfastfood.utils.menu_item.item3.Item3;
 
 import java.util.Collections;
 import java.util.LinkedList;

@@ -14,16 +14,20 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".screens.payment_screen.PaymentOptions"/>
-        <activity android:name=".screens.menu_item.item3.Item3Activity" />
-        <activity android:name=".screens.menu_item.item2.Item2Activity" />
-        <activity android:name=".screens.menu_item.item1.Item1Activity" />
+        <activity
+            android:name=".screens.order_summary_screen.ui.OrderSummaryScreen"
+            android:label="@string/title_activity_order_summay_screen"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".screens.place_new_order_screen.payment_screen.PaymentOptions" />
+        <activity android:name=".utils.menu_item.item3.Item3Activity" />
+        <activity android:name=".utils.menu_item.item2.Item2Activity" />
+        <activity android:name=".utils.menu_item.item1.Item1Activity" />
         <activity android:name=".screens.place_new_order_screen.Menu" />
         <activity android:name=".screens.place_new_order_screen.PlaceOrder" />
         <activity android:name=".screens.registration_screen.RegistrationScreen" />
         <activity android:name=".screens.login_screen.LoginScreen" />
         <activity android:name=".screens.dashboard.Dashboard" />
-        <activity android:name=".screens.launch_screen.LaunchScreen">
+        <activity android:name=".screens.launch_screen.LaunchScreen" android:theme="@style/LaunchScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

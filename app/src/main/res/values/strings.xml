@@ -6,8 +6,7 @@
     <string name="sigh_up_here">Not registered? Sigh up here.</string>
     <string name="register">Register</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="price">Price: </string>
 
     <string name="Item1Spinner1">Choose weight in kg</string>
     <string-array name="Chicken65kg">
@@ -41,4 +40,11 @@
         <item>15</item>
         <item>18</item>
     </string-array>
+    <string name="title_activity_order_screen">Order Summary</string>
+    <string name="tab_text_1">Current Order</string>
+    <string name="tab_text_2">Previous Orders</string>
+    <string name="title_activity_order_summay_screen">OrderSummayScreen</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

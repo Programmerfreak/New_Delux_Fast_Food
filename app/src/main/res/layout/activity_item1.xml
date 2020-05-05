@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:padding="8dp"
     android:orientation="vertical"
-    tools:context=".screens.menu_item.item1.Item1Activity">
+    tools:context=".utils.menu_item.item1.Item1Activity">
 
     <ImageView
         android:id="@+id/imageView"
@@ -82,4 +82,5 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:text="Order" />
+
 </RelativeLayout>

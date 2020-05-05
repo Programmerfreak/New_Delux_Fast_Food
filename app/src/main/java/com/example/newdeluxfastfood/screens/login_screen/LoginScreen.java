@@ -10,9 +10,11 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.newdeluxfastfood.screens.dashboard.Dashboard;
+import com.example.newdeluxfastfood.custom_loading_screen.LoginCustomLoadingDialog;
 import com.example.newdeluxfastfood.databinding.ActivityLoginBinding;
+import com.example.newdeluxfastfood.screens.dashboard.Dashboard;
 import com.example.newdeluxfastfood.screens.registration_screen.RegistrationScreen;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -23,6 +25,9 @@ public class LoginScreen extends AppCompatActivity {
     private String email, password;
     private ActivityLoginBinding binding;
     private final Context currentContext = LoginScreen.this;
+    private LoginCustomLoadingDialog dialog;
+    private static final String TAG = "LoginScreen";
+    GoogleSignInOptions gso;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,10 +37,13 @@ public class LoginScreen extends AppCompatActivity {
         setContentView(view);
 
         mFirebaseAuth = FirebaseAuth.getInstance();
+        dialog = new LoginCustomLoadingDialog(LoginScreen.this);
 
         binding.logIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                dialog.showLoadingDialog();
+
                 email = binding.emailEditText.getText().toString();
                 password = binding.passwordEditText.getText().toString();
 
@@ -46,6 +54,8 @@ public class LoginScreen extends AppCompatActivity {
                         mFirebaseAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
+                                dialog.dismissLoadingDialog();
+
                                 if (task.isSuccessful()) {
                                     startActivity(new Intent(currentContext, Dashboard.class));
                                     finish();

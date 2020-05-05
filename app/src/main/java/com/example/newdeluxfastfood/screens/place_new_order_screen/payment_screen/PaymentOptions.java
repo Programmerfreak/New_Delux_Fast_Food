@@ -1,4 +1,4 @@
-package com.example.newdeluxfastfood.screens.payment_screen;
+package com.example.newdeluxfastfood.screens.place_new_order_screen.payment_screen;
 
 import android.Manifest;
 import android.content.Intent;
@@ -12,8 +12,11 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import com.example.newdeluxfastfood.databinding.ActivityPaymentOptionsBinding;
-import com.example.newdeluxfastfood.screens.payment_screen.Paytm.CustomLoadingDialog;
-import com.example.newdeluxfastfood.screens.payment_screen.Paytm.PaytmPayMethod;
+import com.example.newdeluxfastfood.custom_loading_screen.PaytmCustomLoadingDialog;
+import com.example.newdeluxfastfood.screens.place_new_order_screen.payment_screen.Paytm.PaytmPayMethod;
+import com.google.firebase.auth.FirebaseAuth;
+
+import java.util.ArrayList;
 
 public class PaymentOptions extends AppCompatActivity implements PaytmPayMethod.Connector {
     private static final String TAG = "PaymentOptions";
@@ -21,10 +24,12 @@ public class PaymentOptions extends AppCompatActivity implements PaytmPayMethod.
     private int price;
     private String response;
     private PaytmPayMethod PPM;
+    private FirebaseAuth auth =  FirebaseAuth.getInstance();
+    private ArrayList<String> orderItems = new ArrayList<>();
 
     //Making dialog static to use it in this class as well as in interface making only one common
     //instance of the dialog
-    private static CustomLoadingDialog dialog;
+    private static PaytmCustomLoadingDialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,16 +40,17 @@ public class PaymentOptions extends AppCompatActivity implements PaytmPayMethod.
 
         Intent passedIntent = getIntent();
         price = passedIntent.getIntExtra("Price", -1);
+        orderItems = passedIntent.getStringArrayListExtra("orderItems");
 
         binding.priceTextView.setText("Passed price: "+price);
 
-        dialog = new CustomLoadingDialog(PaymentOptions.this);
+        dialog = new PaytmCustomLoadingDialog(PaymentOptions.this);
 
         binding.paytmOption.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 dialog.showLoadingDialog();
-                PPM = new PaytmPayMethod(PaymentOptions.this, ""+price);
+                PPM = new PaytmPayMethod(PaymentOptions.this, ""+price, auth.getUid(), orderItems);
                 PPM.generateChecksum();
                 //Toast.makeText(PaymentOptions.this, "Paytm option", Toast.LENGTH_SHORT).show();
             }

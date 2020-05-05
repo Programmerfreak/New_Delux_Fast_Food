@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".screens.menu_item.item3.Item3Activity">
+    tools:context=".utils.menu_item.item3.Item3Activity">
 
     <ImageView
         android:id="@+id/imageView"
