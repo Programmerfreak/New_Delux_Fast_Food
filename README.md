@@ -5,5 +5,4 @@ the order.
 ## License
 Copyright (c) 2021 Ajmalhusain Eache
 <br/>
-Licensed under MIT license
-[The license can be seen here](LICENSE)
+Licensed under MIT license. [The license can be seen here](LICENSE)
