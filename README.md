@@ -3,6 +3,7 @@ A app for easing order process. The customer can order items from comfort and ne
 the order.
 
 ## License
-Copyright(c) 2021 Ajmalhusain Eache.\n
+Copyright(c) 2021 Ajmalhusain Eache
+<br/>
 Licensed under MIT license
 [The license can be seen here](LICENSE)
