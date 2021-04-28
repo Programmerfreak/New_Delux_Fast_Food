@@ -7,6 +7,7 @@ import android.util.Log;
 
 import androidx.annotation.RequiresApi;
 
+import com.example.newdeluxfastfood.BuildConfig;
 import com.example.newdeluxfastfood.screens.place_new_order_screen.payment_screen.PaymentOptions;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -43,7 +44,7 @@ public class PaytmPayMethod {
     private String orderID;
     private Context mContext;
     private HashMap<String, String> param = new HashMap<>();
-    private final String mid = "cWjXlj51560085282100";
+    private final String mid = BuildConfig.PAYTM_MID_KEY;
     private String price;
     private Connector mConnector = new PaymentOptions();
     private String checksumHash = "";
